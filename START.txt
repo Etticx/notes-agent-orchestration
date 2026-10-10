@@ -1,0 +1,93 @@
+BUTTER NOTES ASSISTANT - HOW TO START
+===================================
+
+START THE WEB APP (EVERY TIME)
+
+1. Open a PowerShell terminal.
+
+2. Copy and run these commands:
+
+   cd "D:\SCHOLARSHIPS\My Items\Degree Project\AI_Agent_Orchestration\frontend"
+   npm.cmd run dev
+
+3. Wait until the terminal says "Ready".
+
+4. Open the Local URL shown in the terminal. Normally it is:
+
+   http://127.0.0.1:3000
+
+5. Keep the terminal open while using the app.
+
+   Chat: ask questions about your notes.
+   Agent overview: watch Notes, Writer, and Reviewer work.
+
+6. To stop the web app, return to that terminal and press Ctrl+C.
+
+   Next time, repeat steps 1-4.
+
+
+DO I NEED TO START A BACKEND SEPARATELY?
+
+No. The Next.js server starts the Python workflow automatically when you
+send a message. You only need the one terminal running the command above.
+
+Browser -> Next.js -> Python -> Notes -> Writer -> Reviewer -> Browser
+
+Python uses the project's .venv and loads the Groq key from the root .env.
+You do not need to activate the virtual environment to start the web app.
+You do not need another API key or a separate Python web server.
+
+Your computer needs an internet connection for the Groq model requests.
+
+
+YOUR NOTES AND API KEY
+
+Add .md or .txt files directly inside the project's notes folder.
+Refresh the browser to update the filenames shown in the sidebar.
+
+The API key belongs in this file:
+   D:\SCHOLARSHIPS\My Items\Degree Project\AI_Agent_Orchestration\.env
+
+That file already contains your configured key. Keep it private.
+
+Chat messages are displayed temporarily. Refreshing clears them, and each
+request starts with fresh agent context; persistent memory is not added yet.
+
+
+OPTIONAL: RUN THE PYTHON WORKFLOW WITHOUT THE FRONTEND
+
+Open a PowerShell terminal and run:
+
+   cd "D:\SCHOLARSHIPS\My Items\Degree Project\AI_Agent_Orchestration"
+   .\.venv\Scripts\python.exe orchestrator.py "Summarize my notes. Cite your sources."
+
+This prints the workflow and answer in your terminal. It does not start
+a backend server and is not required when using the web app.
+
+
+IF SOMETHING DOES NOT START
+
+- "npm" is not recognized:
+  Install Node.js, then reopen your terminal. Use Node.js 20.9 or newer.
+  npm.cmd is the Windows command for npm.
+
+- Next.js dependencies are missing:
+  From the frontend folder, run "npm.cmd install", then "npm.cmd run dev".
+  Dependencies are already installed on this computer.
+
+- The app cannot start Python:
+  Check that .venv\Scripts\python.exe exists in the root project folder.
+  The project's Python environment is already set up on this computer.
+  See README.md for setup instructions if moving to another computer.
+
+- Groq rejects the key:
+  Check GROQ_API_KEY in the root .env file, then try again.
+
+- Groq's rate limit is reached:
+  Wait for the limit to recover, then resend your request.
+
+- Port 3000 is already in use:
+  Use the Local URL printed by the terminal; Next.js may choose another port.
+
+- The browser cannot connect:
+  Check that the terminal is still running and says "Ready".

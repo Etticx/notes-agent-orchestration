@@ -1,0 +1,52 @@
+direction right
+colorMode pastel
+styleMode plain
+typeface clean
+
+User [icon: user, label: "You"]
+
+Laptop [icon: monitor, color: blue, label: "LOCAL - your laptop"] {
+  CLI [icon: terminal, label: "Python terminal app"]
+  Orchestrator [icon: python, label: "Orchestrator / task state"]
+  Agents [icon: bot, label: "Agent roles - same LLM"] {
+    Researcher [icon: search, label: "Research agent / gather notes"]
+    Writer [icon: file-text, label: "Writer agent / draft explanation"]
+    Reviewer [icon: shield-check, label: "Reviewer agent / check sources"]
+  }
+  Tools [icon: wrench, label: "Local tools / list, search, read"]
+  Notes [icon: folder, label: "Notes folder / Markdown + text"]
+  Memory [icon: sqlite, label: "SQLite / history + run state"]
+  Guardrails [icon: shield-check, label: "Guardrails / validate tools + paths"]
+  SDK [icon: groq, label: "Groq Python SDK / retry + call limits"]
+  Output [icon: check, label: "Reviewed answer + note references"]
+}
+
+Cloud [icon: cloud, color: orange, label: "CLOUD - Groq"] {
+  LLM [icon: groq, label: "Groq-hosted LLM / inference only"]
+}
+
+Later [color: gray, label: "OPTIONAL LATER - not required for v1"] {
+  Postgres [icon: postgres, label: "PostgreSQL / memory upgrade"]
+}
+
+User > CLI: question
+CLI > Orchestrator: start task
+Orchestrator > Researcher: instructions + context
+Researcher > Writer: evidence + source paths
+Writer > Reviewer: draft + evidence
+Reviewer > Output: pass review
+Reviewer --> Writer: revise - maximum 2 rounds
+Researcher <> Tools: tool request / result
+Tools <> Notes: read permitted files
+Orchestrator <> Memory: load / save state
+Guardrails -- Orchestrator: step and revision limits
+Guardrails -- Tools: allowlist + argument checks
+Agents <> SDK: model requests / responses
+SDK <> LLM: HTTPS - relevant context + tool results
+Memory --> Postgres: possible future migration
+
+legend [position: bottom-left] {
+  [color: blue, label: "Runs locally"]
+  [color: orange, label: "Remote model inference"]
+  [connection: -->, label: "Revision or optional upgrade"]
+}

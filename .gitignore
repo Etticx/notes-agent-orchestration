@@ -1,0 +1,11 @@
+.env
+.venv/
+.uv-cache/
+__pycache__/
+*.pyc
+.test-notes-*/
+frontend/node_modules/
+frontend/.next/
+frontend/*.tsbuildinfo
+frontend/.env*
+!frontend/.env.example
