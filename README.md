@@ -49,13 +49,6 @@ npm.cmd install
 npm.cmd run dev
 ```
 
-Open the Local URL printed in the terminal, usually http://127.0.0.1:3000.
-Next.js starts Python automatically when you send a message, so there's no separate
-backend server to start. Requires Python 3.10+ and Node.js 20.9+.
-
-More startup help is in [START.txt](START.txt).
-The longer code walkthrough is in [the learning guide](docs/LEARNING_GUIDE.md).
-
 ## Still learning
 
 Each request starts fresh. Persistent memory and vector search haven't been added.
