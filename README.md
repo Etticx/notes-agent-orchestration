@@ -12,7 +12,7 @@ and a third checks it. Python handles the handoffs between them.
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-<a href="https://groq.com/"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/groq.svg" width="20" height="20" alt="Groq logo" /> Groq</a>
+<a href="https://groq.com/"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/groq.svg" width="20" height="20" alt="Groq logo" /></a>
 
 Python runs the agents. Next.js, React, and TypeScript handle the frontend.
 Groq provides the LLM through its API.
